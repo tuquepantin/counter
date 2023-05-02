@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "../component/Navbar.jsx";
 
 function Home(){
     return(
         <>
-            <h1>Home</h1>
+            <Navbar />
         </>
     )
 }
