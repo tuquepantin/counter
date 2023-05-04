@@ -1,25 +1,35 @@
-import React from "react";
-import Navbar from "../component/Navbar.jsx";
-import Jumbotron from "../component/Jumbotron.jsx";
-import Card from "../component/Card.jsx";
-import Footer from "../component/Footer.jsx";
+import React, { useEffect, useState } from "react";
+
+
 
 function Home(){
-    return(
+    const [counter, setCounter] = useState(0)
+
+    useEffect(() => {
+        let setIntervalId = setInterval(() => {
+            setCounter(counter + 1)
+        }, 1000)
+        
+        return () => {
+            clearInterval(setIntervalId)
+        }
+
+    }, [counter])
+
+    return (
         <>
-            <Navbar />
             <div className="container">
-                <Jumbotron />
-                <div className="row">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                <div className="d-flex">
+                    <h1 className="w-25">{Math.floor(counter / 100000) % 10 }</h1>
+                    <h1 className="w-25">{Math.floor(counter / 10000) % 10 }</h1>
+                    <h1 className="w-25">{Math.floor(counter / 1000) % 10 }</h1>
+                    <h1 className="w-25">{Math.floor(counter / 100) % 10 }</h1>
+                    <h1 className="w-25">{Math.floor(counter / 10) % 10}</h1>
+                    <h1 className="w-25">{Math.floor(counter / 1) % 10}</h1>
                 </div>
             </div>
-            <Footer />
         </>
-    )
-}
+    );
+};
 
 export default Home;
