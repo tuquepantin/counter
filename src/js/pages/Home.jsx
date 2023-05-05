@@ -15,6 +15,10 @@ function Home(){
 
     }, [counter])
 
+    const restart=()=>{
+        setCounter(0);
+    }
+
     return (
         <>
             <div className="container counter">
@@ -27,6 +31,10 @@ function Home(){
                     <h1 className="w-25">{Math.floor(counter / 10) % 10}</h1>
                     <h1 className="w-25">{Math.floor(counter / 1) % 10}</h1>
                 </div>
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <button type="button" onClick={restart} className="restart btn btn-primary">Restart</button>
+                </div>
+                
             </div>
         </>
     );
